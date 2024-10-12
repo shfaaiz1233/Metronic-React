@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { KTDataTable } from "../metronic/core";
 
 const DataTable = () => {
-  const apiUrl = "http://localhost:8000/data";
+  const apiUrl = "https://fast-api-server-livid.vercel.app/data";
 
   useEffect(() => {
     const element = document.querySelector("#kt_remote_table"); // Moved selection inside useEffect
