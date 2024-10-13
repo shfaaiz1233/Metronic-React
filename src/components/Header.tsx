@@ -1,4 +1,6 @@
+import { useNavigate } from "react-router-dom";
 function Header() {
+  const navigate = useNavigate();
   return (
     <header
       className="header fixed top-0 z-10 left-0 right-0 flex items-stretch shrink-0 bg-[#fefefe] dark:bg-coal-500"
@@ -4158,12 +4160,15 @@ function Header() {
                     </div>
                   </div>
                   <div className="menu-item px-4 py-1.5">
-                    <a
+                    <button
                       className="btn btn-sm btn-light justify-center"
-                      href="html/demo1/authentication/classic/sign-in.html"
+                      onClick={() => {
+                        localStorage.removeItem("User");
+                        navigate("/login");
+                      }}
                     >
                       Log out
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
