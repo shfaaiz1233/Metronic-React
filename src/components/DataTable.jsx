@@ -46,14 +46,18 @@ const DataTable = () => {
     // Initialize KTDataTable
     const dataTable = new KTDataTable(element, dataTableOptions);
     console.log("DataTable initialized:", dataTable); // Log the initialized DataTable instance
-
   }, [apiUrl]); // Add apiUrl as a dependency if it changes
 
   return (
     <div className="grid">
       <div className="card card-grid min-w-full">
-        <div className="card-header py-5 flex-wrap justify-center ">
-          <h3 className="card-title text-center items-center">Remote Data Source</h3>
+        <div className="card-header py-5 flex-wrap justify-between ">
+          <h3 className="card-title">
+            Remote Data Source
+          </h3>
+          <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Add Member
+          </button>
           {/* <label className="switch switch-sm">
             <input
               checked=""
@@ -83,7 +87,10 @@ const DataTable = () => {
                         <span className="sort-icon"></span>
                       </span>
                     </th>
-                    <th className="min-w-[250px]" data-datatable-column="ipAddress">
+                    <th
+                      className="min-w-[250px]"
+                      data-datatable-column="ipAddress"
+                    >
                       <span className="sort">
                         <span className="sort-label">IP Address</span>
                         <span className="sort-icon"></span>

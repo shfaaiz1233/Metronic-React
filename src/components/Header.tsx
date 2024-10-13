@@ -1,5 +1,9 @@
 import { useNavigate } from "react-router-dom";
-function Header() {
+interface SidebarProps {
+  leftNav: string;
+  setLeftNav: React.Dispatch<React.SetStateAction<string>>; // Function to update leftNav
+}
+function Header({ leftNav }: SidebarProps) {
   const navigate = useNavigate();
   return (
     <header
@@ -55,7 +59,11 @@ function Header() {
                 data-menu="true"
                 id="megamenu"
               >
-                <div className="menu-item active">
+                <div
+                  className={`menu-item active ${
+                    leftNav !== "dashboard" ? "hidden" : ""
+                  }`}
+                >
                   <a
                     className="menu-link text-nowrap text-sm text-gray-700 font-medium menu-item-hover:text-primary menu-item-active:text-gray-900 menu-item-active:font-semibold"
                     href="html/demo1.html"
@@ -64,991 +72,168 @@ function Header() {
                   </a>
                 </div>
                 <div
-                  className="menu-item"
-                  data-menu-item-placement="bottom-start"
-                  data-menu-item-toggle="accordion|lg:dropdown"
-                  data-menu-item-trigger="click|lg:hover"
+                  className={`menu-item ${
+                    leftNav !== "inference" ? "hidden" : ""
+                  }`}
                 >
-                  <div className="menu-link text-sm text-gray-700 font-medium menu-link-hover:text-primary menu-item-active:text-gray-900 menu-item-show:text-primary menu-item-here:text-gray-900 menu-item-active:font-semibold menu-item-here:font-semibold">
+                  <a
+                    className="menu-link text-nowrap text-sm text-gray-700 font-medium menu-item-hover:text-primary menu-item-active:text-gray-900 menu-item-active:font-semibold"
+                    href="html/demo1.html"
+                  >
+                    <span className="menu-title text-nowrap">Templates</span>
+                  </a>
+                </div>
+                <div
+                  className={`menu-item ${
+                    leftNav !== "inference" ? "hidden" : ""
+                  }`}
+                >
+                  <a
+                    className="menu-link text-nowrap text-sm text-gray-700 font-medium menu-item-hover:text-primary menu-item-active:text-gray-900 menu-item-active:font-semibold"
+                    href="html/demo1.html"
+                  >
+                    <span className="menu-title text-nowrap">Prompts</span>
+                  </a>
+                </div>
+                <div
+                  className={`menu-item ${
+                    leftNav !== "inference" ? "hidden" : ""
+                  }`}
+                >
+                  <a
+                    className="menu-link text-nowrap text-sm text-gray-700 font-medium menu-item-hover:text-primary menu-item-active:text-gray-900 menu-item-active:font-semibold"
+                    href="html/demo1.html"
+                  >
                     <span className="menu-title text-nowrap">
-                      Public Profiles
+                      Subscriptions
                     </span>
-                    <span className="menu-arrow flex lg:hidden">
-                      <i className="ki-filled ki-plus text-2xs menu-item-show:hidden"></i>
-                      <i className="ki-filled ki-minus text-2xs hidden menu-item-show:inline-flex"></i>
-                    </span>
-                  </div>
-                  <div className="menu-dropdown w-full gap-0 lg:max-w-[875px]">
-                    <div className="pt-4 pb-2 lg:p-7.5">
-                      <div className="grid lg:grid-cols-2 gap-5 lg:gap-10">
-                        <div className="menu menu-default menu-fit flex-col">
-                          <h3 className="text-sm text-gray-800 font-semibold leading-none pl-2.5 mb-2 lg:mb-5">
-                            Profiles
-                          </h3>
-                          <div className="grid lg:grid-cols-2 lg:gap-5">
-                            <div className="flex flex-col">
-                              <div className="menu-item">
-                                <a
-                                  className="menu-link"
-                                  href="html/demo1/public-profile/profiles/default.html"
-                                  tabIndex={0}
-                                >
-                                  <span className="menu-icon">
-                                    <i className="ki-filled ki-badge"></i>
-                                  </span>
-                                  <span className="menu-title grow-0">
-                                    Default
-                                  </span>
-                                </a>
-                              </div>
-                              <div className="menu-item">
-                                <a
-                                  className="menu-link"
-                                  href="html/demo1/public-profile/profiles/creator.html"
-                                  tabIndex={0}
-                                >
-                                  <span className="menu-icon">
-                                    <i className="ki-filled ki-coffee"></i>
-                                  </span>
-                                  <span className="menu-title grow-0">
-                                    Creator
-                                  </span>
-                                </a>
-                              </div>
-                              <div className="menu-item">
-                                <a
-                                  className="menu-link"
-                                  href="html/demo1/public-profile/profiles/company.html"
-                                  tabIndex={0}
-                                >
-                                  <span className="menu-icon">
-                                    <i className="ki-filled ki-abstract-41"></i>
-                                  </span>
-                                  <span className="menu-title grow-0">
-                                    Company
-                                  </span>
-                                </a>
-                              </div>
-                              <div className="menu-item">
-                                <a
-                                  className="menu-link"
-                                  href="html/demo1/public-profile/profiles/nft.html"
-                                  tabIndex={0}
-                                >
-                                  <span className="menu-icon">
-                                    <i className="ki-filled ki-bitcoin"></i>
-                                  </span>
-                                  <span className="menu-title grow-0">NFT</span>
-                                </a>
-                              </div>
-                              <div className="menu-item">
-                                <a
-                                  className="menu-link"
-                                  href="html/demo1/public-profile/profiles/blogger.html"
-                                  tabIndex={0}
-                                >
-                                  <span className="menu-icon">
-                                    <i className="ki-filled ki-message-text"></i>
-                                  </span>
-                                  <span className="menu-title grow-0">
-                                    Blogger
-                                  </span>
-                                </a>
-                              </div>
-                              <div className="menu-item">
-                                <a
-                                  className="menu-link"
-                                  href="html/demo1/public-profile/profiles/crm.html"
-                                  tabIndex={0}
-                                >
-                                  <span className="menu-icon">
-                                    <i className="ki-filled ki-devices"></i>
-                                  </span>
-                                  <span className="menu-title grow-0">CRM</span>
-                                </a>
-                              </div>
-                              <div className="menu-item">
-                                <a
-                                  className="menu-link"
-                                  href="html/demo1/public-profile/profiles/gamer.html"
-                                  tabIndex={0}
-                                >
-                                  <span className="menu-icon">
-                                    <i className="ki-filled ki-ghost"></i>
-                                  </span>
-                                  <span className="menu-title grow-0">
-                                    Gamer
-                                  </span>
-                                </a>
-                              </div>
-                            </div>
-                            <div>
-                              <div className="menu-item">
-                                <a
-                                  className="menu-link"
-                                  href="html/demo1/public-profile/profiles/feeds.html"
-                                  tabIndex={0}
-                                >
-                                  <span className="menu-icon">
-                                    <i className="ki-filled ki-book"></i>
-                                  </span>
-                                  <span className="menu-title grow-0">
-                                    Feeds
-                                  </span>
-                                </a>
-                              </div>
-                              <div className="menu-item">
-                                <a
-                                  className="menu-link"
-                                  href="html/demo1/public-profile/profiles/plain.html"
-                                  tabIndex={0}
-                                >
-                                  <span className="menu-icon">
-                                    <i className="ki-filled ki-files"></i>
-                                  </span>
-                                  <span className="menu-title grow-0">
-                                    Plain
-                                  </span>
-                                </a>
-                              </div>
-                              <div className="menu-item">
-                                <a
-                                  className="menu-link"
-                                  href="html/demo1/public-profile/profiles/modal.html"
-                                  tabIndex={0}
-                                >
-                                  <span className="menu-icon">
-                                    <i className="ki-filled ki-mouse-square"></i>
-                                  </span>
-                                  <span className="menu-title grow-0">
-                                    Modal
-                                  </span>
-                                </a>
-                              </div>
-                              <div className="menu-item">
-                                <a className="menu-link" href="#" tabIndex={0}>
-                                  <span className="menu-icon">
-                                    <i className="ki-filled ki-financial-schedule"></i>
-                                  </span>
-                                  <span className="menu-title grow-0">
-                                    Freelancer
-                                  </span>
-                                  <span className="menu-badge">
-                                    <span className="badge badge-xs">Soon</span>
-                                  </span>
-                                </a>
-                              </div>
-                              <div className="menu-item">
-                                <a className="menu-link" href="#" tabIndex={0}>
-                                  <span className="menu-icon">
-                                    <i className="ki-filled ki-technology-4"></i>
-                                  </span>
-                                  <span className="menu-title grow-0">
-                                    Developer
-                                  </span>
-                                  <span className="menu-badge">
-                                    <span className="badge badge-xs">Soon</span>
-                                  </span>
-                                </a>
-                              </div>
-                              <div className="menu-item">
-                                <a className="menu-link" href="#" tabIndex={0}>
-                                  <span className="menu-icon">
-                                    <i className="ki-filled ki-users"></i>
-                                  </span>
-                                  <span className="menu-title grow-0">
-                                    Team
-                                  </span>
-                                  <span className="menu-badge">
-                                    <span className="badge badge-xs">Soon</span>
-                                  </span>
-                                </a>
-                              </div>
-                              <div className="menu-item">
-                                <a className="menu-link" href="#" tabIndex={0}>
-                                  <span className="menu-icon">
-                                    <i className="ki-filled ki-calendar-tick"></i>
-                                  </span>
-                                  <span className="menu-title grow-0">
-                                    Events
-                                  </span>
-                                  <span className="menu-badge">
-                                    <span className="badge badge-xs">Soon</span>
-                                  </span>
-                                </a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="menu menu-default menu-fit flex-col">
-                          <h3 className="text-sm text-gray-800 font-semibold leading-none pl-2.5 mb-2 lg:mb-5">
-                            Other Pages
-                          </h3>
-                          <div className="grid lg:grid-cols-2 lg:gap-5">
-                            <div className="flex flex-col">
-                              <div className="menu-item">
-                                <a
-                                  className="menu-link"
-                                  href="html/demo1/public-profile/projects/3-columns.html"
-                                  tabIndex={0}
-                                >
-                                  <span className="menu-icon">
-                                    <i className="ki-filled ki-element-6"></i>
-                                  </span>
-                                  <span className="menu-title grow-0">
-                                    Projects - 3 Columns
-                                  </span>
-                                </a>
-                              </div>
-                              <div className="menu-item">
-                                <a
-                                  className="menu-link"
-                                  href="html/demo1/public-profile/projects/2-columns.html"
-                                  tabIndex={0}
-                                >
-                                  <span className="menu-icon">
-                                    <i className="ki-filled ki-element-4"></i>
-                                  </span>
-                                  <span className="menu-title grow-0">
-                                    Projects - 2 Columns
-                                  </span>
-                                </a>
-                              </div>
-                              <div className="menu-item">
-                                <a
-                                  className="menu-link"
-                                  href="html/demo1/public-profile/works.html"
-                                  tabIndex={0}
-                                >
-                                  <span className="menu-icon">
-                                    <i className="ki-filled ki-office-bag"></i>
-                                  </span>
-                                  <span className="menu-title grow-0">
-                                    Works
-                                  </span>
-                                </a>
-                              </div>
-                              <div className="menu-item">
-                                <a
-                                  className="menu-link"
-                                  href="html/demo1/public-profile/teams.html"
-                                  tabIndex={0}
-                                >
-                                  <span className="menu-icon">
-                                    <i className="ki-filled ki-people"></i>
-                                  </span>
-                                  <span className="menu-title grow-0">
-                                    Teams
-                                  </span>
-                                </a>
-                              </div>
-                              <div className="menu-item">
-                                <a
-                                  className="menu-link"
-                                  href="html/demo1/public-profile/network.html"
-                                  tabIndex={0}
-                                >
-                                  <span className="menu-icon">
-                                    <i className="ki-filled ki-icon"></i>
-                                  </span>
-                                  <span className="menu-title grow-0">
-                                    Network
-                                  </span>
-                                </a>
-                              </div>
-                              <div className="menu-item">
-                                <a
-                                  className="menu-link"
-                                  href="html/demo1/public-profile/activity.html"
-                                  tabIndex={0}
-                                >
-                                  <span className="menu-icon">
-                                    <i className="ki-filled ki-chart-line-up-2"></i>
-                                  </span>
-                                  <span className="menu-title grow-0">
-                                    Activity
-                                  </span>
-                                </a>
-                              </div>
-                              <div className="menu-item">
-                                <a
-                                  className="menu-link"
-                                  href="html/demo1/public-profile/campaigns/card.html"
-                                  tabIndex={0}
-                                >
-                                  <span className="menu-icon">
-                                    <i className="ki-filled ki-element-11"></i>
-                                  </span>
-                                  <span className="menu-title grow-0">
-                                    Campaigns - Card
-                                  </span>
-                                </a>
-                              </div>
-                            </div>
-                            <div>
-                              <div className="menu-item">
-                                <a
-                                  className="menu-link"
-                                  href="html/demo1/public-profile/campaigns/list.html"
-                                  tabIndex={0}
-                                >
-                                  <span className="menu-icon">
-                                    <i className="ki-filled ki-kanban"></i>
-                                  </span>
-                                  <span className="menu-title grow-0">
-                                    Campaigns - List
-                                  </span>
-                                </a>
-                              </div>
-                              <div className="menu-item">
-                                <a
-                                  className="menu-link"
-                                  href="html/demo1/public-profile/empty.html"
-                                  tabIndex={0}
-                                >
-                                  <span className="menu-icon">
-                                    <i className="ki-filled ki-file-sheet"></i>
-                                  </span>
-                                  <span className="menu-title grow-0">
-                                    Empty Page
-                                  </span>
-                                </a>
-                              </div>
-                              <div className="menu-item">
-                                <a className="menu-link" href="#" tabIndex={0}>
-                                  <span className="menu-icon">
-                                    <i className="ki-filled ki-document"></i>
-                                  </span>
-                                  <span className="menu-title grow-0">
-                                    Documents
-                                  </span>
-                                  <span className="menu-badge">
-                                    <span className="badge badge-xs">Soon</span>
-                                  </span>
-                                </a>
-                              </div>
-                              <div className="menu-item">
-                                <a className="menu-link" href="#" tabIndex={0}>
-                                  <span className="menu-icon">
-                                    <i className="ki-filled ki-award"></i>
-                                  </span>
-                                  <span className="menu-title grow-0">
-                                    Badges
-                                  </span>
-                                  <span className="menu-badge">
-                                    <span className="badge badge-xs">Soon</span>
-                                  </span>
-                                </a>
-                              </div>
-                              <div className="menu-item">
-                                <a className="menu-link" href="#" tabIndex={0}>
-                                  <span className="menu-icon">
-                                    <i className="ki-filled ki-gift"></i>
-                                  </span>
-                                  <span className="menu-title grow-0">
-                                    Awards
-                                  </span>
-                                  <span className="menu-badge">
-                                    <span className="badge badge-xs">Soon</span>
-                                  </span>
-                                </a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex flex-wrap items-center lg:justify-between rounded-xl lg:rounded-t-none bg-light-active dark:bg-coal-500 border border-gray-300 lg:border-0 lg:border-t lg:border-t-gray-300 dark:lg:border-t-gray-100 px-4 py-4 lg:px-7.5 lg:py-5 gap-2.5">
-                      <div className="flex flex-col gap-1.5">
-                        <div className="text-md font-semibold text-gray-900 leading-none">
-                          Read to Get Started ?
-                        </div>
-                        <div className="text-2sm fomt-medium text-gray-600">
-                          Take your docs to the next level of Metronic
-                        </div>
-                      </div>
-                      <a className="btn btn-sm btn-dark" href="#">
-                        Read Documentation
-                      </a>
-                    </div>
-                  </div>
+                  </a>
                 </div>
                 <div
-                  className="menu-item"
+                  className={`menu-item ${
+                    leftNav !== "infrastructure" ? "hidden" : ""
+                  }`}
+                >
+                  <a
+                    className="menu-link text-nowrap text-sm text-gray-700 font-medium menu-item-hover:text-primary menu-item-active:text-gray-900 menu-item-active:font-semibold"
+                    href="html/demo1.html"
+                  >
+                    <span className="menu-title text-nowrap">Nodes</span>
+                  </a>
+                </div>
+                <div
+                  className={`menu-item ${
+                    leftNav !== "infrastructure" ? "hidden" : ""
+                  }`}
+                >
+                  <a
+                    className="menu-link text-nowrap text-sm text-gray-700 font-medium menu-item-hover:text-primary menu-item-active:text-gray-900 menu-item-active:font-semibold"
+                    href="html/demo1.html"
+                  >
+                    <span className="menu-title text-nowrap">My Nodes</span>
+                  </a>
+                </div>
+                <div
+                  className={`menu-item ${
+                    leftNav !== "infrastructure" && leftNav !== "account"
+                      ? "hidden"
+                      : ""
+                  }`}
+                >
+                  <a
+                    className="menu-link text-nowrap text-sm text-gray-700 font-medium menu-item-hover:text-primary menu-item-active:text-gray-900 menu-item-active:font-semibold"
+                    href="html/demo1.html"
+                  >
+                    <span className="menu-title text-nowrap">Data Blocks</span>
+                  </a>
+                </div>
+                <div
+                  className={`menu-item ${
+                    leftNav !== "account" ? "hidden" : ""
+                  }`}
+                >
+                  <a
+                    className="menu-link text-nowrap text-sm text-gray-700 font-medium menu-item-hover:text-primary menu-item-active:text-gray-900 menu-item-active:font-semibold"
+                    href="html/demo1.html"
+                  >
+                    <span className="menu-title text-nowrap">Wallets</span>
+                  </a>
+                </div>
+                <div
+                  className={`menu-item ${
+                    leftNav !== "account" ? "hidden" : ""
+                  }`}
+                >
+                  <a
+                    className="menu-link text-nowrap text-sm text-gray-700 font-medium menu-item-hover:text-primary menu-item-active:text-gray-900 menu-item-active:font-semibold"
+                    href="html/demo1.html"
+                  >
+                    <span className="menu-title text-nowrap">Tokens</span>
+                  </a>
+                </div>
+                <div
+                  className={`menu-item ${
+                    leftNav !== "account" ? "hidden" : ""
+                  }`}
+                >
+                  <a
+                    className="menu-link text-nowrap text-sm text-gray-700 font-medium menu-item-hover:text-primary menu-item-active:text-gray-900 menu-item-active:font-semibold"
+                    href="html/demo1.html"
+                  >
+                    <span className="menu-title text-nowrap">Transactions</span>
+                  </a>
+                </div>
+                <div
+                  className={`menu-item ${
+                    leftNav !== "training" ? "hidden" : ""
+                  }`}
+                  data-menu-item-placement="bottom-start"
+                  data-menu-item-toggle="accordion|lg:dropdown"
+                  data-menu-item-trigger="click|lg:hover"
+                >
+                  <a
+                    className="menu-link text-nowrap text-sm text-gray-700 font-medium menu-item-hover:text-primary menu-item-active:text-gray-900 menu-item-active:font-semibold"
+                    href="html/demo1.html"
+                  >
+                    <span className="menu-title text-nowrap">Market</span>
+                  </a>
+                </div>
+                <div
+                  className={`menu-item ${
+                    leftNav !== "training" ? "hidden" : ""
+                  }`}
                   data-menu-item-offset="-300px, 0"
                   data-menu-item-overflow="true"
                   data-menu-item-placement="bottom-start"
                   data-menu-item-toggle="accordion|lg:dropdown"
                   data-menu-item-trigger="click|lg:hover"
                 >
-                  <div className="menu-link text-sm text-gray-700 font-medium menu-link-hover:text-primary menu-item-active:text-gray-900 menu-item-show:text-primary menu-item-here:text-gray-900 menu-item-active:font-semibold menu-item-here:font-semibold">
-                    <span className="menu-title text-nowrap">My Account</span>
-                    <span className="menu-arrow flex lg:hidden">
-                      <i className="ki-filled ki-plus text-2xs menu-item-show:hidden"></i>
-                      <i className="ki-filled ki-minus text-2xs hidden menu-item-show:inline-flex"></i>
-                    </span>
-                  </div>
-                  <div className="menu-dropdown flex-col lg:flex-row gap-0 w-full lg:max-w-[1240px]">
-                    <div className="lg:w-[250px] mt-2 lg:mt-0 lg:border-r lg:border-r-gray-200 rounded-xl lg:rounded-l-xl lg:rounded-r-none shrink-0 px-3 py-4 lg:p-7.5 bg-light-active dark:bg-coal-500 dark:lg:border-r-coal-100">
-                      <h3 className="text-sm text-gray-800 font-semibold leading-none pl-2.5 mb-2 lg:mb-5">
-                        General Pages
-                      </h3>
-                      <div className="menu menu-default menu-fit flex-col">
-                        <div className="menu-item">
-                          <a
-                            className="menu-link border border-transparent menu-link-hover:!bg-light menu-link-hover:border-gray-200 menu-item-active:!bg-light menu-item-active:border-gray-200 dark:menu-link-hover:!bg-coal-600 dark:menu-link-hover:border-gray-100 dark:menu-item-active:!bg-coal-600 dark:menu-item-active:border-gray-100"
-                            href="html/demo1/account/integrations.html"
-                          >
-                            <span className="menu-icon">
-                              <i className="ki-filled ki-technology-2"></i>
-                            </span>
-                            <span className="menu-title grow-0">
-                              Integrations
-                            </span>
-                          </a>
-                        </div>
-                        <div className="menu-item">
-                          <a
-                            className="menu-link border border-transparent menu-link-hover:!bg-light menu-link-hover:border-gray-200 menu-item-active:!bg-light menu-item-active:border-gray-200 dark:menu-link-hover:!bg-coal-600 dark:menu-link-hover:border-gray-100 dark:menu-item-active:!bg-coal-600 dark:menu-item-active:border-gray-100"
-                            href="html/demo1/account/notifications.html"
-                          >
-                            <span className="menu-icon">
-                              <i className="ki-filled ki-notification-1"></i>
-                            </span>
-                            <span className="menu-title grow-0">
-                              Notifications
-                            </span>
-                          </a>
-                        </div>
-                        <div className="menu-item">
-                          <a
-                            className="menu-link border border-transparent menu-link-hover:!bg-light menu-link-hover:border-gray-200 menu-item-active:!bg-light menu-item-active:border-gray-200 dark:menu-link-hover:!bg-coal-600 dark:menu-link-hover:border-gray-100 dark:menu-item-active:!bg-coal-600 dark:menu-item-active:border-gray-100"
-                            href="html/demo1/account/api-keys.html"
-                          >
-                            <span className="menu-icon">
-                              <i className="ki-filled ki-key"></i>
-                            </span>
-                            <span className="menu-title grow-0">API Keys</span>
-                          </a>
-                        </div>
-                        <div className="menu-item">
-                          <a
-                            className="menu-link border border-transparent menu-link-hover:!bg-light menu-link-hover:border-gray-200 menu-item-active:!bg-light menu-item-active:border-gray-200 dark:menu-link-hover:!bg-coal-600 dark:menu-link-hover:border-gray-100 dark:menu-item-active:!bg-coal-600 dark:menu-item-active:border-gray-100"
-                            href="html/demo1/account/appearance.html"
-                          >
-                            <span className="menu-icon">
-                              <i className="ki-filled ki-eye"></i>
-                            </span>
-                            <span className="menu-title grow-0">
-                              Appearance
-                            </span>
-                          </a>
-                        </div>
-                        <div className="menu-item">
-                          <a
-                            className="menu-link border border-transparent menu-link-hover:!bg-light menu-link-hover:border-gray-200 menu-item-active:!bg-light menu-item-active:border-gray-200 dark:menu-link-hover:!bg-coal-600 dark:menu-link-hover:border-gray-100 dark:menu-item-active:!bg-coal-600 dark:menu-item-active:border-gray-100"
-                            href="html/demo1/account/invite-a-friend.html"
-                          >
-                            <span className="menu-icon">
-                              <i className="ki-filled ki-user-tick"></i>
-                            </span>
-                            <span className="menu-title grow-0">
-                              Invite a Friend
-                            </span>
-                          </a>
-                        </div>
-                        <div className="menu-item">
-                          <a
-                            className="menu-link border border-transparent menu-link-hover:!bg-light menu-link-hover:border-gray-200 menu-item-active:!bg-light menu-item-active:border-gray-200 dark:menu-link-hover:!bg-coal-600 dark:menu-link-hover:border-gray-100 dark:menu-item-active:!bg-coal-600 dark:menu-item-active:border-gray-100"
-                            href="html/demo1/account/activity.html"
-                          >
-                            <span className="menu-icon">
-                              <i className="ki-filled ki-support"></i>
-                            </span>
-                            <span className="menu-title grow-0">Activity</span>
-                          </a>
-                        </div>
-                        <div className="menu-item">
-                          <a
-                            className="menu-link border border-transparent menu-link-hover:!bg-light menu-link-hover:border-gray-200 menu-item-active:!bg-light menu-item-active:border-gray-200 dark:menu-link-hover:!bg-coal-600 dark:menu-link-hover:border-gray-100 dark:menu-item-active:!bg-coal-600 dark:menu-item-active:border-gray-100"
-                            href="#"
-                          >
-                            <span className="menu-icon">
-                              <i className="ki-filled ki-verify"></i>
-                            </span>
-                            <span className="menu-title grow-0">Brand</span>
-                            <span className="menu-badge">
-                              <span className="badge badge-xs">Soon</span>
-                            </span>
-                          </a>
-                        </div>
-                        <div className="menu-item">
-                          <a
-                            className="menu-link border border-transparent menu-link-hover:!bg-light menu-link-hover:border-gray-200 menu-item-active:!bg-light menu-item-active:border-gray-200 dark:menu-link-hover:!bg-coal-600 dark:menu-link-hover:border-gray-100 dark:menu-item-active:!bg-coal-600 dark:menu-item-active:border-gray-100"
-                            href="#"
-                          >
-                            <span className="menu-icon">
-                              <i className="ki-filled ki-euro"></i>
-                            </span>
-                            <span className="menu-title grow-0">Get Paid</span>
-                            <span className="menu-badge">
-                              <span className="badge badge-xs">Soon</span>
-                            </span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="pt-4 pb-2 lg:p-7.5 lg:pb-5 grow">
-                      <div className="grid lg:grid-cols-5 gap-5">
-                        <div className="flex flex-col">
-                          <h3 className="text-sm text-gray-800 font-semibold leading-none pl-2.5 mb-2 lg:mb-5">
-                            Account Home
-                          </h3>
-                          <div className="menu menu-default menu-fit flex-col">
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/home/get-started.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  Get Started
-                                </span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/home/user-profile.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  User Profile
-                                </span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/home/company-profile.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  Company Profile
-                                </span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/home/settings-sidebar.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  With Sidebar
-                                </span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/home/settings-enterprise.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  Enterprise
-                                </span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/home/settings-plain.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">Plain</span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/home/settings-modal.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">Modal</span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="flex flex-col">
-                          <h3 className="text-sm text-gray-800 font-semibold leading-none pl-2.5 mb-2 lg:mb-5">
-                            Billing
-                          </h3>
-                          <div className="menu menu-default menu-fit flex-col">
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/billing/basic.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  Basic Billing
-                                </span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/billing/enterprise.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  Enterprise
-                                </span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/billing/plans.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">Plans</span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/billing/history.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  Billing History
-                                </span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a className="menu-link" href="#" tabIndex={0}>
-                                <span className="menu-title grow-0">
-                                  Tax Info
-                                </span>
-                                <span className="menu-badge">
-                                  <span className="badge badge-xs">Soon</span>
-                                </span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a className="menu-link" href="#" tabIndex={0}>
-                                <span className="menu-title grow-0">
-                                  Invoices
-                                </span>
-                                <span className="menu-badge">
-                                  <span className="badge badge-xs">Soon</span>
-                                </span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a className="menu-link" href="#" tabIndex={0}>
-                                <span className="menu-title grow-0">
-                                  Gateaways
-                                </span>
-                                <span className="menu-badge">
-                                  <span className="badge badge-xs">Soon</span>
-                                </span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="flex flex-col">
-                          <h3 className="text-sm text-gray-800 font-semibold leading-none pl-2.5 mb-2 lg:mb-5">
-                            Security
-                          </h3>
-                          <div className="menu menu-default menu-fit flex-col">
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/security/get-started.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  Get Started
-                                </span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/security/overview.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  Security Overview
-                                </span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/security/allowed-ip-addresses.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  IP Addresses
-                                </span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/security/privacy-settings.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  Privacy Settings
-                                </span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/security/device-management.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  Device Management
-                                </span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/security/backup-and-recovery.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  Backup &amp; Recovery
-                                </span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/security/current-sessions.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  Current Sessions
-                                </span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/security/security-log.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  Security Log
-                                </span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="flex flex-col">
-                          <h3 className="text-sm text-gray-800 font-semibold leading-none pl-2.5 mb-2 lg:mb-5">
-                            Members &amp; Roles
-                          </h3>
-                          <div className="menu menu-default menu-fit flex-col">
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/members/team-starter.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  Teams Starter
-                                </span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/members/teams.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">Teams</span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/members/team-info.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  Team Info
-                                </span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/members/members-starter.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  Members Starter
-                                </span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/members/team-members.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  Team Members
-                                </span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/members/import-members.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  Import Members
-                                </span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/members/roles.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">Roles</span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/members/permissions-toggle.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  Persmissions - Toggler
-                                </span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/members/permissions-check.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  Persmissions - Check
-                                </span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="flex flex-col">
-                          <h3 className="text-sm text-gray-800 font-semibold leading-none pl-2.5 mb-2 lg:mb-5">
-                            Other Pages
-                          </h3>
-                          <div className="menu menu-default menu-fit flex-col">
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/integrations.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  Integrations
-                                </span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/notifications.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  Notifications
-                                </span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/api-keys.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  API Keys
-                                </span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/appearance.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  Appearance
-                                </span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/invite-a-friend.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  Invite a Friend
-                                </span>
-                              </a>
-                            </div>
-                            <div className="menu-item">
-                              <a
-                                className="menu-link"
-                                href="html/demo1/account/activity.html"
-                                tabIndex={0}
-                              >
-                                <span className="menu-title grow-0">
-                                  Activity
-                                </span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <a
+                    className="menu-link text-nowrap text-sm text-gray-700 font-medium menu-item-hover:text-primary menu-item-active:text-gray-900 menu-item-active:font-semibold"
+                    href="html/demo1.html"
+                  >
+                    <span className="menu-title text-nowrap">Swarms</span>
+                  </a>
                 </div>
                 <div
-                  className="menu-item"
+                  className={`menu-item ${
+                    leftNav !== "training" && leftNav !== "inference"
+                      ? "hidden"
+                      : ""
+                  }`}
                   data-menu-item-offset="-300px, 0"
                   data-menu-item-overflow="true"
                   data-menu-item-placement="bottom-start"
                   data-menu-item-toggle="accordion|lg:dropdown"
                   data-menu-item-trigger="click|lg:hover"
                 >
-                  <div className="menu-link text-sm text-gray-700 font-medium menu-link-hover:text-primary menu-item-active:text-gray-900 menu-item-show:text-primary menu-item-here:text-gray-900 menu-item-active:font-semibold menu-item-here:font-semibold">
-                    <span className="menu-title text-nowrap">Network</span>
-                    <span className="menu-arrow flex lg:hidden">
-                      <i className="ki-filled ki-plus text-2xs menu-item-show:hidden"></i>
-                      <i className="ki-filled ki-minus text-2xs hidden menu-item-show:inline-flex"></i>
-                    </span>
-                  </div>
-                  <div className="menu-dropdown flex-col gap-0 w-full lg:max-w-[670px]">
+                  <a
+                    className="menu-link text-nowrap text-sm text-gray-700 font-medium menu-item-hover:text-primary menu-item-active:text-gray-900 menu-item-active:font-semibold"
+                    href="html/demo1.html"
+                  >
+                    <span className="menu-title text-nowrap">Models</span>
+                  </a>
+                  {/* <div className="menu-dropdown flex-col gap-0 w-full lg:max-w-[670px]">
                     <div className="flex flex-col lg:flex-row">
                       <div className="flex flex-col gap-5 lg:w-[250px] mt-2 lg:mt-0 lg:border-r lg:border-r-gray-200 rounded-xl lg:rounded-none lg:rounded-tl-xl shrink-0 px-3 py-4 lg:p-7.5 bg-light-active dark:bg-coal-500 dark:lg:border-r-coal-100">
                         <h3 className="text-sm text-gray-800 font-semibold leading-none pl-2.5 h-3.5">
@@ -1278,26 +463,27 @@ function Header() {
                         Read Documentation
                       </a>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
                 <div
-                  className="menu-item"
+                  className={`menu-item ${
+                    leftNav !== "inference" && leftNav !== "infrastructure"
+                      ? "hidden"
+                      : ""
+                  }`}
                   data-menu-item-offset="-300px, 0"
                   data-menu-item-overflow="true"
                   data-menu-item-placement="bottom-start"
                   data-menu-item-toggle="accordion|lg:dropdown"
                   data-menu-item-trigger="click|lg:hover"
                 >
-                  <div className="menu-link text-sm text-gray-700 font-medium menu-link-hover:text-primary menu-item-active:text-gray-900 menu-item-show:text-primary menu-item-here:text-gray-900 menu-item-active:font-semibold menu-item-here:font-semibold">
-                    <span className="menu-title text-nowrap">
-                      Authentication
-                    </span>
-                    <span className="menu-arrow flex lg:hidden">
-                      <i className="ki-filled ki-plus text-2xs menu-item-show:hidden"></i>
-                      <i className="ki-filled ki-minus text-2xs hidden menu-item-show:inline-flex"></i>
-                    </span>
-                  </div>
-                  <div className="menu-dropdown flex-col gap-0 w-full lg:max-w-[670px]">
+                  <a
+                    className="menu-link text-nowrap text-sm text-gray-700 font-medium menu-item-hover:text-primary menu-item-active:text-gray-900 menu-item-active:font-semibold"
+                    href="html/demo1.html"
+                  >
+                    <span className="menu-title text-nowrap">Oracles</span>
+                  </a>
+                  {/* <div className="menu-dropdown flex-col gap-0 w-full lg:max-w-[670px]">
                     <div className="flex flex-col lg:flex-row">
                       <div className="pt-4 pb-2 lg:p-7.5 lg:pb-5 grow">
                         <div className="grid lg:grid-cols-2 gap-5">
@@ -1572,10 +758,12 @@ function Header() {
                         Read Documentation
                       </a>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
                 <div
-                  className="menu-item"
+                  className={`menu-item ${
+                    leftNav !== "dashboard" ? "hidden" : ""
+                  }`}
                   data-menu-item-offset="0,0|lg:-20px, 0"
                   data-menu-item-overflow="true"
                   data-menu-item-placement="bottom-start"

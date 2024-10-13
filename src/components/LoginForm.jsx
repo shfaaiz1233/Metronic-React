@@ -5,8 +5,11 @@ import { useNavigate } from "react-router-dom";
 const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
   const handleSubmit = async () => {
+    setLoading(true);
     try {
       const request = {
         username,
@@ -21,12 +24,15 @@ const LoginForm = () => {
         token
       );
       if (res.status === 200) {
+        setLoading(false);
         console.log("Success");
         console.log(res.data);
         localStorage.setItem("User", res.data);
         navigate("/");
       }
     } catch (err) {
+      setLoading(false);
+      setError("An error occured");
       console.log(err.message);
     }
   };
@@ -100,8 +106,9 @@ const LoginForm = () => {
           onClick={handleSubmit}
           className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
-          Login to your account
+          {loading ? "Loading..." : "Login to your account"}
         </button>
+        {error && <p className="text-red-500">{error}</p>}
         <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
           Not registered?{" "}
           <a
