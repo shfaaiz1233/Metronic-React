@@ -15,7 +15,7 @@ const Login = () => {
         <div className="h-full w-1/2 hidden md:flex justify-center items-center text-gray-100 bg-slate-100">
           <img
             className="default-logo min-h-[22px] max-w-none"
-            src="/media/app/default-logo.svg"
+            src="/media/logo/modelex.png"
           />
         </div>
       </div>
