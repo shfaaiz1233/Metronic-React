@@ -16,20 +16,23 @@ function Sidebar({ leftNav, setLeftNav }: SidebarProps) {
         className="sidebar-header hidden lg:flex items-center relative justify-between px-3 lg:px-6 shrink-0"
         id="sidebar_header"
       >
-        <a className="dark:hidden" href="html/demo1.html">
+        <a className="dark:hidden" href="/">
           <img
-            className="default-logo min-h-[22px] max-w-none"
-            src="/media/app/default-logo.svg"
+            className="default-logo min-h-[22px]"
+            // src="/media/app/default-logo.svg"
+            src="/media/logo/modelex.png"
           />
           <img
-            className="small-logo min-h-[22px] max-w-none"
-            src="/media/app/mini-logo.svg"
+            className="small-logo min-h-[22px]"
+            // src="/media/app/mini-logo.svg"
+            src="/media/logo/modelex.png"
           />
         </a>
-        <a className="hidden dark:block" href="html/demo1.html">
+        <a className="hidden dark:block" href="/">
           <img
-            className="default-logo min-h-[22px] max-w-none"
-            src="/media/app/default-logo-dark.svg"
+            className="default-logo min-h-[22px]"
+            // src="/media/app/default-logo-dark.svg"
+            src="/media/logo/modelex.png"
           />
           <img
             className="small-logo min-h-[22px] max-w-none"
@@ -89,7 +92,7 @@ function Sidebar({ leftNav, setLeftNav }: SidebarProps) {
                 <div className="menu-item">
                   <a
                     className="menu-link gap-[14px] pl-[10px] pr-[10px] py-[8px] border border-transparent items-center grow menu-item-active:bg-secondary-active dark:menu-item-active:bg-coal-300 dark:menu-item-active:border-gray-100 menu-item-active:rounded-lg hover:bg-secondary-active dark:hover:bg-coal-300 dark:hover:border-gray-100 hover:rounded-lg"
-                    href="html/demo1.html"
+                    href="/"
                     tabIndex={0}
                   >
                     <span className="menu-bullet flex w-[6px] relative before:absolute before:top-0 before:size-[6px] before:rounded-full before:-translate-x-1/2 before:-translate-y-1/2 menu-item-active:before:bg-primary menu-item-hover:before:bg-primary"></span>
