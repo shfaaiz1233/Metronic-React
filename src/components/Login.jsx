@@ -5,8 +5,8 @@ const Login = () => {
     <div className="h-full w-full">
       {" "}
       <img
-        className="default-logo min-h-[22px] max-w-none pt-4 pl-4 flex md:hidden"
-        src="/media/app/default-logo.svg"
+        className="default-logo h-20 max-w-none pt-4 pl-4 flex md:hidden"
+        src="/media/logo/modelex.png"
       />
       <div className="h-full w-full md:flex">
         <div className="h-full w-full md:w-1/2 flex justify-center items-center">

@@ -24,7 +24,7 @@ function Sidebar({ leftNav, setLeftNav }: SidebarProps) {
           />
           <img
             className="small-logo min-h-[22px]"
-            // src="/media/app/mini-logo.svg"
+            // src="/media/logo/modelex.png"
             src="/media/logo/modelex.png"
           />
         </a>
@@ -36,7 +36,7 @@ function Sidebar({ leftNav, setLeftNav }: SidebarProps) {
           />
           <img
             className="small-logo min-h-[22px] max-w-none"
-            src="/media/app/mini-logo.svg"
+            src="/media/logo/modelex.png"
           />
         </a>
         <button

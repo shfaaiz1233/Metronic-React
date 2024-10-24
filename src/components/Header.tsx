@@ -22,7 +22,7 @@ function Header({ leftNav }: SidebarProps) {
           <a className="shrink-0" href="html/demo1.html">
             <img
               className="max-h-[25px] w-full"
-              src="/media/app/mini-logo.svg"
+              src="/media/logo/modelex.png"
             />
           </a>
           <div className="flex items-center">
